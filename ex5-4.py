@@ -62,7 +62,7 @@ class IDIterator:
         :raise StopIteration: raise an exception when next number is not valid anymore (can't create next id)
         """
         self._id += 1
-        while self._id <= IDIterator.MAX_SIZE and not check_id_valid(self._id):
+        while self._id < IDIterator.MAX_SIZE and not check_id_valid(self._id):
             self._id += 1
         if self._id >= IDIterator.MAX_SIZE:
             raise StopIteration("Numbers Out of range")
