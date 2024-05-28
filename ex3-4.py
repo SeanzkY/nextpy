@@ -100,27 +100,27 @@ def check_input(username, password):
     :raises UsernameContainsIllegalCharacter
     """
     # checks if username is made out of only alphabetical or numeric characters or underscores
-    if not username.replace("_", EXAMPLE_OF_ALPHA_CHAR).isalnum():
+    if username != "" and not username.replace("_", EXAMPLE_OF_ALPHA_CHAR).isalnum():
         # returns the last illegal character's index
         illegal_index = reduce(lambda x, y: y if not username[y].isalnum() and username[y] != "_" else x,
                                range(len(username)), -1)
         raise UsernameContainsIllegalCharacter(username[illegal_index], illegal_index)
 
     elif len(username) < MIN_USERNAME_LEN:
-        raise UsernameTooShort()
+        raise UsernameTooShort
 
     elif len(username) > MAX_USERNAME_LEN:
-        raise UsernameTooLong()
+        raise UsernameTooLong
 
     # There is an error in the question writing: it's said to keep the precedence of exception throwing identical to the
     # order they were given in the question but in the example the order is like I implemented here which is different
     # from the order in which the question is written
 
     elif len(password) < MIN_PASSWORD_LEN:
-        raise PasswordTooShort()
+        raise PasswordTooShort
 
     elif len(password) > MAX_PASSWORD_LEN:
-        raise PasswordTooLong()
+        raise PasswordTooLong
 
     elif not len([letter for letter in password if letter.isupper()]) > 0:
         raise PasswordMissingUppercase
