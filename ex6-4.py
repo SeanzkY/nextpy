@@ -57,10 +57,10 @@ def main():
 
     # draw lines for pictures
     [draw.line([(first[x], first[x + 1]), first[x + 2], first[x + 3]], fill=LINE_COLOR)
-     for x in range(0, len(first) - 4, 4)]
+     for x in range(0, len(first) - 4, 2)]
 
     [draw.line([(second[x], second[x + 1]), second[x + 2], second[x + 3]], fill=LINE_COLOR)
-     for x in range(0, len(second) - 4, 4)]
+     for x in range(0, len(second) - 4, 2)]
 
     # display the image
     image.show()
